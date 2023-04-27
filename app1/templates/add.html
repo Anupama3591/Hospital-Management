@@ -1,0 +1,52 @@
+{% extends 'patientdetails.html' %}
+
+
+{% block content %} 
+<h1 class="text-center alert alert-dark">Hospital Management System</h1>
+
+<div class="row">
+    <div class="col-sm-3">
+        <h4 class="text-center alert alert-info">Add Patients's</h4>
+        <form action="" method="post"  novalidate>
+            {% csrf_token %}
+            {{fm.as_p}}
+            <input type="submit"  class="btn btn-primary" value="Submit">
+        </form>
+</div>
+<div class="col-sm-8 offset-1">
+    <h4 class="text-center alert alert-info">Patient's Information</h4>
+        <table class="table table-dark table-striped">
+         <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Phone Number</th>
+         <th>Gender</th> 
+         <th> Fee</th>
+         <th>Condition</th>
+         <th>Update</th>
+         
+         </tr>
+         {% for pt in stu %}
+         <tr>
+         <td> {{pt.id}}</td>
+         <td> {{pt.name}}</td>
+         <td> {{pt.phonenumber}}</td>
+         <td> {{pt.gender}}</td>
+         <td>{{pt.fee}}</td>
+         <td>{{pt.condition}}</td>
+         <!-- want to see add and delete in all row show in td cell inside tr-->
+         <td>
+         
+             <a href="{% url 'update' pt.id %}" >Update </a> 
+             <!-- delete shouldnot be shown in url so form -->
+             <form action="{% url 'deletedata' pt.id %}" method="post" class="d-inline"> {% csrf_token %}
+                 <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+             </form> 
+         </td>
+         </tr>
+         {% endfor %}
+         
+        </table>
+
+</div>
+{% endblock content %} 

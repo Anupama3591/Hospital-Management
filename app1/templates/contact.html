@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    <div class="container">
+      <h1>Connect with Us</h1>
+      <div class="contact-box">
+        <div class="contact-left">
+          <h3>Send your request</h3>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-row">
+              <div class="input-group">
+                <label >Name</label>
+                <input type="text" name="name" placeholder="Enter your name">
+              </div>
+              <div class="input-group">
+                <label >Phone</label>
+                <input type="text"  name="Phone" placeholder="">
+              </div>
+            </div>
+          
+
+          <div class="input-row">
+            <div class="input-group">
+              <label >Email</label>
+              <input type="email" name="email" placeholder="">
+            </div>
+            <div class="input-group">
+              <label >Subject</label>
+              <input type="text"  name="subject" placeholder="">
+            </div>
+          </div>
+
+          <label >Message</label>
+          <textarea  rows="5" name="Message" placeholder="Your Message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+
+        </div>
+        <div class="contact-right">
+          <h3>Reach Us</h3>
+          <tabel>
+            <tr>
+              <td>Email:</td><br>
+              <td>anupamasudha321@gmail.com</td>
+
+            </tr> 
+            <br>
+            <br>
+            
+            <tr>
+              <td>Phone:</td><br>
+              <td>9701764937</td>
+
+            </tr>
+            <br>
+            <br>
+            <tr>
+              <td>Address:</td><br>
+              <td>672, 1st floor,GokulPlots<br>Kukatpally,Hyderabad.</td>
+
+            </tr>
+          </tabel>
+        </div>
+      </div>
+
+    </div>
+</body>
+</html>
